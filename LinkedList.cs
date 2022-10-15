@@ -90,8 +90,25 @@ namespace LinkedListProblem
                 return null;
             }
             this.head = this.head.next;
-            Console.WriteLine("the Removed Value is " + this.head);
             return this.head;
+        }
+        public Node RemoveLastNode()
+        {
+            if (this.head == null)
+            {
+                return null;
+            }
+            if (head.next == null)
+            {
+                return null;
+            }
+            Node NewNode = head;
+            while (NewNode.next.next != null)
+            {
+                NewNode = NewNode.next;
+            }
+            NewNode.next = null;
+            return head;
         }
     }
 }
