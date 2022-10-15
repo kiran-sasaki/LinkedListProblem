@@ -54,7 +54,7 @@ namespace LinkedListProblem
         }
         public void AddingAtParticularPosition(int position, int data)
         {
-            if(position < 1)
+            if (position < 1)
             {
                 Console.WriteLine("Invalid Position");
             }
@@ -66,22 +66,32 @@ namespace LinkedListProblem
             }
             else
             {
-                while(position-- !=0)
+                while (position-- != 0)
                 {
-                    if(position ==1)
+                    if (position == 1)
                     {
                         Node node = new Node(data);
                         node.next = this.head.next;
                         head.next = node;
                         break;
                     }
-                    head=head.next;
+                    head = head.next;
 
                 }
                 if (position != 1)
                     Console.WriteLine("Position Out of range");
             }
-            Console.WriteLine("the Inserted Value is " +data);
+            Console.WriteLine("the Inserted Value is " + data);
+        }
+        public Node RemoveFirstNode()
+        {
+            if (this.head == null)
+            {
+                return null;
+            }
+            this.head = this.head.next;
+            Console.WriteLine("the Removed Value is " + this.head);
+            return this.head;
         }
     }
 }
